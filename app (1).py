@@ -5,9 +5,11 @@ import torchvision.transforms as transforms
 import os
 
 # モデルの読み込み
+from ultralytics import YOLO
+
 @st.cache_resource
 def load_model():
-    model = torch.hub.load('ultralytics/yolov5', 'custom', path='best.pt', source='github')
+    model = YOLO("best.pt")  # best.pt はリポジトリのルートに置いてください
     return model
 
 model = load_model()
