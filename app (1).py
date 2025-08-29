@@ -9,8 +9,7 @@ import torch
 
 @st.cache_resource
 def load_model():
-    model = torch.load("best.pt", map_location=torch.device("cpu"))
-    model.eval()
+    model = torch.hub.load('ultralytics/yolov5', 'custom', path='best.pt', source='local')
     return model
 
 model = load_model()
