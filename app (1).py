@@ -2,14 +2,16 @@ import streamlit as st
 from PIL import Image
 import torch
 import torchvision.transforms as transforms
+import sys
 import os
 
-# モデルの読み込み
-import torch
+
+# yolov5 ディレクトリをパスに追加
+sys.path.append(os.path.join(os.path.dirname(__file__), 'yolov5'))
 
 @st.cache_resource
 def load_model():
-    model = torch.hub.load('ultralytics/yolov5', 'custom', path='best.pt', source='local')
+    model = torch.hub.load('yolov5', 'custom', path='best.pt', source='local')
     return model
 
 model = load_model()
