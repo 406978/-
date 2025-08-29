@@ -5,11 +5,12 @@ import torchvision.transforms as transforms
 import os
 
 # モデルの読み込み
-from ultralytics import YOLO
+import torch
 
 @st.cache_resource
 def load_model():
-    model = YOLO("best.pt")  # best.pt はリポジトリのルートに置いてください
+    model = torch.load("best.pt", map_location=torch.device("cpu"))
+    model.eval()
     return model
 
 model = load_model()
