@@ -7,7 +7,7 @@ import os
 # モデルの読み込み
 @st.cache_resource
 def load_model():
-    model = torch.hub.load('ultralytics/yolov5', 'custom', path='best.pt', source='local')
+    model = torch.hub.load('ultralytics/yolov5', 'custom', path='best.pt', source='github')
     return model
 
 model = load_model()
