@@ -7,8 +7,7 @@ import os
 # モデルの読み込み
 @st.cache_resource
 def load_model():
-    # Correct the path to hubconf.py
-    model = torch.hub.load('/content/yolov5', 'custom', path='/content/yolov5/runs/train-cls/exp/weights/best.pt', source='local', force_reload=True)
+    model = torch.hub.load('ultralytics/yolov5', 'custom', path='best.pt', source='local')
     return model
 
 model = load_model()
